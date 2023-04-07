@@ -405,9 +405,11 @@ func SyncLdapUsers(owner string, users []LdapRespUser, ldapId string) (*[]LdapRe
 				}
 			}
 		}
+		ldapUserName := buildLdapUserName(user.Uid, user.UidNumber)
 		if !found && !AddUser(&User{
 			Owner:       owner,
-			Name:        buildLdapUserName(user.Uid, user.UidNumber),
+			Name:        ldapUserName,
+			LdapCn:      ldapUserName,
 			CreatedTime: util.GetCurrentTime(),
 			DisplayName: user.Cn,
 			Avatar:      organization.DefaultAvatar,

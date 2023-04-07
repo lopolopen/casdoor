@@ -311,8 +311,7 @@ func GetOAuthCode(userId string, clientId string, responseType string, redirectU
 	}
 }
 
-
-func GetOAuthToken(grantType string, clientId string, clientSecret string, code string, verifier string, scope string, username string, password string, host string, tag string, avatar string) *TokenWrapper {
+func GetOAuthToken(grantType string, clientId string, clientSecret string, code string, verifier string, scope string, username string, password string, cn string, host string, tag string, avatar string) *TokenWrapper {
 	var errString string
 	application := GetApplicationByClientId(clientId)
 	if application == nil {
@@ -345,7 +344,7 @@ func GetOAuthToken(grantType string, clientId string, clientSecret string, code 
 	case "authorization_code": // Authorization Code Grant
 		token, err = GetAuthorizationCodeToken(application, clientSecret, code, verifier)
 	case "password": //	Resource Owner Password Credentials Grant
-		token, err = GetPasswordToken(application, username, password, scope, host)
+		token, err = GetPasswordToken(application, username, password, cn, scope, host)
 	case "client_credentials": // Client Credentials Grant
 		token, err = GetClientCredentialsToken(application, clientSecret, scope, host)
 	}
@@ -550,12 +549,21 @@ func GetAuthorizationCodeToken(application *Application, clientSecret string, co
 }
 
 // Resource Owner Password Credentials flow
-func GetPasswordToken(application *Application, username string, password string, scope string, host string) (*Token, error) {
-	user := getUser(application.Organization, username)
-	if user == nil {
-		return nil, errors.New("error: the user does not exist")
+func GetPasswordToken(application *Application, username string, password string, cn string, scope string, host string) (*Token, error) {
+	var user *User
+	var msg string
+	if username != "" {
+		user = getUser(application.Organization, username)
+		if user == nil {
+			return nil, errors.New("error: the user does not exist")
+		}
+		msg = CheckPassword(user, password)
+	} else {
+		user, msg = CheckLdapUserPassword(application.Organization, cn, password)
+		if user == nil {
+			return nil, errors.New("error: the user does not exist")
+		}
 	}
-	msg := CheckPassword(user, password)
 	if msg != "" {
 		return nil, errors.New("error: invalid username or password")
 	}

@@ -143,7 +143,7 @@ func checkLdapUserPassword(user *User, password string) (*User, string) {
 		if err != nil {
 			continue
 		}
-		SearchFilter := fmt.Sprintf("(&(objectClass=posixAccount)(uid=%s))", user.Name)
+		SearchFilter := fmt.Sprintf("(&(objectClass=posixAccount)(uid=%s))", user.LdapCn)
 		searchReq := goldap.NewSearchRequest(ldapServer.BaseDn,
 			goldap.ScopeWholeSubtree, goldap.NeverDerefAliases, 0, 0, false,
 			SearchFilter, []string{}, nil)
@@ -191,6 +191,23 @@ func CheckUserPassword(organization string, username string, password string) (*
 		}
 	}
 	return user, ""
+}
+
+func CheckLdapUserPassword(organization string, cn string, password string) (*User, string) {
+	user := GetUserByField(organization, "ldap_cn", cn)
+	if user == nil || user.IsDeleted == true {
+		return nil, "the user does not exist, please sign up first"
+	}
+
+	if user.IsForbidden {
+		return nil, "the user is forbidden to sign in, please contact the administrator"
+	}
+
+	if user.Ldap == "" {
+		return nil, "the user is not a valid ldap account"
+	}
+
+	return checkLdapUserPassword(user, password)
 }
 
 func filterField(field string) bool {

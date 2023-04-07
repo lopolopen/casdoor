@@ -164,6 +164,7 @@ func (c *ApiController) GetOAuthCode() {
 // @Param   client_id     query    string  true        "OAuth client id"
 // @Param   client_secret     query    string  true        "OAuth client secret"
 // @Param   code     query    string  true        "OAuth code"
+// @Param   cn     query    string  true       "Ldap CN"
 // @Success 200 {object} object.TokenWrapper The Response object
 // @router /login/oauth/access_token [post]
 func (c *ApiController) GetOAuthToken() {
@@ -175,6 +176,7 @@ func (c *ApiController) GetOAuthToken() {
 	scope := c.Input().Get("scope")
 	username := c.Input().Get("username")
 	password := c.Input().Get("password")
+	cn := c.Input().Get("ldap_cn")
 	tag := c.Input().Get("tag")
 	avatar := c.Input().Get("avatar")
 
@@ -199,7 +201,7 @@ func (c *ApiController) GetOAuthToken() {
 	}
 	host := c.Ctx.Request.Host
 
-	c.Data["json"] = object.GetOAuthToken(grantType, clientId, clientSecret, code, verifier, scope, username, password, host, tag, avatar)
+	c.Data["json"] = object.GetOAuthToken(grantType, clientId, clientSecret, code, verifier, scope, username, password, cn, host, tag, avatar)
 	c.ServeJSON()
 }
 
