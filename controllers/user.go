@@ -54,23 +54,33 @@ func (c *ApiController) GetGlobalUsers() {
 // @Tag User API
 // @Description
 // @Param   owner     query    string  true        "The owner of users"
+// @Param   page      query    int     false       "Page size"
+// @Param   pageSize  query    int     false       "Page number(starts from 1)"
+// @Param   field     query    string  false       "Field to filter"
+// @Param   value     query    string  false       "Value to filter(like)"
+// @Param   type      query    string  false       "User type"
 // @Success 200 {array} object.User The Response object
 // @router /get-users [get]
 func (c *ApiController) GetUsers() {
 	owner := c.Input().Get("owner")
 	limit := c.Input().Get("pageSize")
+	_page := c.Input().Get("page")
+	if _page != "" {
+		c.Input().Set("p", _page)
+	}
 	page := c.Input().Get("p")
 	field := c.Input().Get("field")
 	value := c.Input().Get("value")
 	sortField := c.Input().Get("sortField")
 	sortOrder := c.Input().Get("sortOrder")
+	userType := c.Input().Get("type")
 	if limit == "" || page == "" {
 		c.Data["json"] = object.GetMaskedUsers(object.GetUsers(owner))
 		c.ServeJSON()
 	} else {
 		limit := util.ParseInt(limit)
-		paginator := pagination.SetPaginator(c.Ctx, limit, int64(object.GetUserCount(owner, field, value)))
-		users := object.GetPaginationUsers(owner, paginator.Offset(), limit, field, value, sortField, sortOrder)
+		paginator := pagination.SetPaginator(c.Ctx, limit, int64(object.GetUserCountExt(owner, field, value, userType)))
+		users := object.GetPaginationUsers(owner, paginator.Offset(), limit, field, value, sortField, sortOrder, userType)
 		users = object.GetMaskedUsers(users)
 		c.ResponseOk(users, paginator.Nums())
 	}

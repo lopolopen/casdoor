@@ -32,7 +32,15 @@ import (
 
 func main() {
 	createDatabase := flag.Bool("createDatabase", false, "true if you need Casdoor to create database")
+	confFile := flag.String("f", "", "the config file")
 	flag.Parse()
+
+	if confFile != nil && *confFile != "" {
+		err := beego.LoadAppConfig("ini", *confFile)
+		if err != nil {
+			panic(err)
+		}
+	}
 
 	object.InitAdapter(*createDatabase)
 	object.InitDb()
@@ -41,7 +49,7 @@ func main() {
 	proxy.InitHttpClient()
 	authz.InitAuthz()
 
-	util.SafeGoroutine(func() {object.RunSyncUsersJob()})
+	util.SafeGoroutine(func() { object.RunSyncUsersJob() })
 
 	//beego.DelStaticPath("/static")
 	beego.SetStaticPath("/static", "web/build/static")

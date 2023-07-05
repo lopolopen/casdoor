@@ -157,6 +157,16 @@ func GetUserCount(owner, field, value string) int {
 	return int(count)
 }
 
+func GetUserCountExt(owner, field, value, userType string) int {
+	session := GetSessionExt(owner, -1, -1, field, value, "", "", userType)
+	count, err := session.Count(&User{})
+	if err != nil {
+		panic(err)
+	}
+
+	return int(count)
+}
+
 func GetOnlineUserCount(owner string, isOnline int) int {
 	count, err := adapter.Engine.Where("is_online = ?", isOnline).Count(&User{Owner: owner})
 	if err != nil {
@@ -186,9 +196,9 @@ func GetSortedUsers(owner string, sorter string, limit int) []*User {
 	return users
 }
 
-func GetPaginationUsers(owner string, offset, limit int, field, value, sortField, sortOrder string) []*User {
+func GetPaginationUsers(owner string, offset, limit int, field, value, sortField, sortOrder, userType string) []*User {
 	users := []*User{}
-	session := GetSession(owner, offset, limit, field, value, sortField, sortOrder)
+	session := GetSessionExt(owner, offset, limit, field, value, sortField, sortOrder, userType)
 	err := session.Find(&users)
 	if err != nil {
 		panic(err)

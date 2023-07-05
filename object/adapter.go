@@ -16,11 +16,12 @@ package object
 
 import (
 	"fmt"
-	"runtime"
-
 	"github.com/astaxie/beego"
 	"github.com/casdoor/casdoor/conf"
 	"github.com/casdoor/casdoor/util"
+	"runtime"
+	"strings"
+
 	//_ "github.com/denisenkom/go-mssqldb" // db = mssql
 	_ "github.com/go-sql-driver/mysql" // db = mysql
 	//_ "github.com/lib/pq"                // db = postgres
@@ -205,6 +206,10 @@ func (a *Adapter) createTable() {
 }
 
 func GetSession(owner string, offset, limit int, field, value, sortField, sortOrder string) *xorm.Session {
+	return GetSessionExt(owner, offset, limit, field, value, sortField, sortOrder, "")
+}
+
+func GetSessionExt(owner string, offset, limit int, field, value, sortField, sortOrder, userType string) *xorm.Session {
 	session := adapter.Engine.Prepare()
 	if offset != -1 && limit != -1 {
 		session.Limit(limit, offset)
@@ -215,6 +220,11 @@ func GetSession(owner string, offset, limit int, field, value, sortField, sortOr
 	if field != "" && value != "" {
 		if filterField(field) {
 			session = session.And(fmt.Sprintf("%s like ?", util.SnakeString(field)), fmt.Sprintf("%%%s%%", value))
+		}
+	}
+	if userType != "" {
+		if strings.ToLower(userType) == "ldap" {
+			session = session.And("ldap<>''")
 		}
 	}
 	if sortField == "" || sortOrder == "" {

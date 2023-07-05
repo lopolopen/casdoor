@@ -10,7 +10,7 @@ paths:
   /.well-known/jwks:
     get:
       tags:
-      - OIDC API
+      - github.com/casdoor/casdoor/controllersRootController
       operationId: RootController.GetJwks
       responses:
         "200":
@@ -20,7 +20,7 @@ paths:
   /.well-known/openid-configuration:
     get:
       tags:
-      - OIDC API
+      - github.com/casdoor/casdoor/controllersRootController
       description: Get Oidc Discovery
       operationId: RootController.GetOidcDiscovery
       responses:
@@ -31,7 +31,7 @@ paths:
   /api/add-application:
     post:
       tags:
-      - Application API
+      - api
       description: add an application
       operationId: ApiController.AddApplication
       parameters:
@@ -49,7 +49,7 @@ paths:
   /api/add-cert:
     post:
       tags:
-      - Cert API
+      - api
       description: add cert
       operationId: ApiController.AddCert
       parameters:
@@ -67,12 +67,12 @@ paths:
   /api/add-ldap:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.AddLdap
   /api/add-model:
     post:
       tags:
-      - Model API
+      - api
       description: add model
       operationId: ApiController.AddModel
       parameters:
@@ -90,7 +90,7 @@ paths:
   /api/add-organization:
     post:
       tags:
-      - Organization API
+      - api
       description: add organization
       operationId: ApiController.AddOrganization
       parameters:
@@ -108,7 +108,7 @@ paths:
   /api/add-payment:
     post:
       tags:
-      - Payment API
+      - api
       description: add payment
       operationId: ApiController.AddPayment
       parameters:
@@ -126,7 +126,7 @@ paths:
   /api/add-permission:
     post:
       tags:
-      - Permission API
+      - api
       description: add permission
       operationId: ApiController.AddPermission
       parameters:
@@ -144,7 +144,7 @@ paths:
   /api/add-product:
     post:
       tags:
-      - Product API
+      - api
       description: add product
       operationId: ApiController.AddProduct
       parameters:
@@ -162,7 +162,7 @@ paths:
   /api/add-provider:
     post:
       tags:
-      - Provider API
+      - api
       description: add provider
       operationId: ApiController.AddProvider
       parameters:
@@ -180,12 +180,12 @@ paths:
   /api/add-resource:
     post:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.AddResource
   /api/add-role:
     post:
       tags:
-      - Role API
+      - api
       description: add role
       operationId: ApiController.AddRole
       parameters:
@@ -203,7 +203,7 @@ paths:
   /api/add-syncer:
     post:
       tags:
-      - Syncer API
+      - api
       description: add syncer
       operationId: ApiController.AddSyncer
       parameters:
@@ -221,7 +221,7 @@ paths:
   /api/add-token:
     post:
       tags:
-      - Token API
+      - api
       description: add token
       operationId: ApiController.AddToken
       parameters:
@@ -239,7 +239,7 @@ paths:
   /api/add-user:
     post:
       tags:
-      - User API
+      - api
       description: add user
       operationId: ApiController.AddUser
       parameters:
@@ -257,7 +257,7 @@ paths:
   /api/add-webhook:
     post:
       tags:
-      - Webhook API
+      - api
       description: add webhook
       operationId: ApiController.AddWebhook
       parameters:
@@ -275,17 +275,17 @@ paths:
   /api/api/get-captcha:
     get:
       tags:
-      - Login API
+      - api
       operationId: ApiController.GetCaptcha
   /api/api/reset-email-or-phone:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.ResetEmailOrPhone
   /api/api/send-email:
     post:
       tags:
-      - Service API
+      - api
       description: This API is not for Casdoor frontend to call, it is for Casdoor SDKs.
       operationId: ApiController.SendEmail
       parameters:
@@ -313,7 +313,7 @@ paths:
   /api/api/send-sms:
     post:
       tags:
-      - Service API
+      - api
       description: This API is not for Casdoor frontend to call, it is for Casdoor SDKs.
       operationId: ApiController.SendSms
       parameters:
@@ -341,7 +341,7 @@ paths:
   /api/buy-product:
     post:
       tags:
-      - Product API
+      - api
       description: buy product
       operationId: ApiController.BuyProduct
       parameters:
@@ -363,17 +363,17 @@ paths:
   /api/check-ldap-users-exist:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.CheckLdapUserExist
   /api/check-user-password:
     post:
       tags:
-      - User API
+      - api
       operationId: ApiController.CheckUserPassword
   /api/delete-application:
     post:
       tags:
-      - Application API
+      - api
       description: delete an application
       operationId: ApiController.DeleteApplication
       parameters:
@@ -391,7 +391,7 @@ paths:
   /api/delete-cert:
     post:
       tags:
-      - Cert API
+      - api
       description: delete cert
       operationId: ApiController.DeleteCert
       parameters:
@@ -409,12 +409,12 @@ paths:
   /api/delete-ldap:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.DeleteLdap
   /api/delete-model:
     post:
       tags:
-      - Model API
+      - api
       description: delete model
       operationId: ApiController.DeleteModel
       parameters:
@@ -432,7 +432,7 @@ paths:
   /api/delete-organization:
     post:
       tags:
-      - Organization API
+      - api
       description: delete organization
       operationId: ApiController.DeleteOrganization
       parameters:
@@ -450,7 +450,7 @@ paths:
   /api/delete-payment:
     post:
       tags:
-      - Payment API
+      - api
       description: delete payment
       operationId: ApiController.DeletePayment
       parameters:
@@ -468,7 +468,7 @@ paths:
   /api/delete-permission:
     post:
       tags:
-      - Permission API
+      - api
       description: delete permission
       operationId: ApiController.DeletePermission
       parameters:
@@ -486,7 +486,7 @@ paths:
   /api/delete-product:
     post:
       tags:
-      - Product API
+      - api
       description: delete product
       operationId: ApiController.DeleteProduct
       parameters:
@@ -504,7 +504,7 @@ paths:
   /api/delete-provider:
     post:
       tags:
-      - Provider API
+      - api
       description: delete provider
       operationId: ApiController.DeleteProvider
       parameters:
@@ -522,12 +522,12 @@ paths:
   /api/delete-resource:
     post:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.DeleteResource
   /api/delete-role:
     post:
       tags:
-      - Role API
+      - api
       description: delete role
       operationId: ApiController.DeleteRole
       parameters:
@@ -545,7 +545,7 @@ paths:
   /api/delete-syncer:
     post:
       tags:
-      - Syncer API
+      - api
       description: delete syncer
       operationId: ApiController.DeleteSyncer
       parameters:
@@ -563,7 +563,7 @@ paths:
   /api/delete-token:
     post:
       tags:
-      - Token API
+      - api
       description: delete token
       operationId: ApiController.DeleteToken
       parameters:
@@ -581,7 +581,7 @@ paths:
   /api/delete-user:
     post:
       tags:
-      - User API
+      - api
       description: delete user
       operationId: ApiController.DeleteUser
       parameters:
@@ -599,7 +599,7 @@ paths:
   /api/delete-webhook:
     post:
       tags:
-      - Webhook API
+      - api
       description: delete webhook
       operationId: ApiController.DeleteWebhook
       parameters:
@@ -617,7 +617,7 @@ paths:
   /api/get-account:
     get:
       tags:
-      - Account API
+      - api
       description: get the details of the current account
       operationId: ApiController.GetAccount
       responses:
@@ -628,7 +628,7 @@ paths:
   /api/get-app-login:
     get:
       tags:
-      - Login API
+      - api
       description: get application login
       operationId: ApiController.GetApplicationLogin
       parameters:
@@ -665,7 +665,7 @@ paths:
   /api/get-application:
     get:
       tags:
-      - Application API
+      - api
       description: get the detail of an application
       operationId: ApiController.GetApplication
       parameters:
@@ -682,7 +682,7 @@ paths:
   /api/get-applications:
     get:
       tags:
-      - Application API
+      - api
       description: get all applications
       operationId: ApiController.GetApplications
       parameters:
@@ -701,7 +701,7 @@ paths:
   /api/get-cert:
     get:
       tags:
-      - Cert API
+      - api
       description: get cert
       operationId: ApiController.GetCert
       parameters:
@@ -718,7 +718,7 @@ paths:
   /api/get-certs:
     get:
       tags:
-      - Cert API
+      - api
       description: get certs
       operationId: ApiController.GetCerts
       parameters:
@@ -737,7 +737,7 @@ paths:
   /api/get-email-and-phone:
     post:
       tags:
-      - User API
+      - api
       description: get email and phone by username
       operationId: ApiController.GetEmailAndPhone
       parameters:
@@ -759,7 +759,7 @@ paths:
   /api/get-global-users:
     get:
       tags:
-      - User API
+      - api
       description: get global users
       operationId: ApiController.GetGlobalUsers
       responses:
@@ -772,22 +772,22 @@ paths:
   /api/get-ldap:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.GetLdap
   /api/get-ldap-user:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.GetLdapser
   /api/get-ldaps:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.GetLdaps
   /api/get-model:
     get:
       tags:
-      - Model API
+      - api
       description: get model
       operationId: ApiController.GetModel
       parameters:
@@ -804,7 +804,7 @@ paths:
   /api/get-models:
     get:
       tags:
-      - Model API
+      - api
       description: get models
       operationId: ApiController.GetModels
       parameters:
@@ -823,7 +823,7 @@ paths:
   /api/get-organization:
     get:
       tags:
-      - Organization API
+      - api
       description: get organization
       operationId: ApiController.GetOrganization
       parameters:
@@ -840,7 +840,7 @@ paths:
   /api/get-organizations:
     get:
       tags:
-      - Organization API
+      - api
       description: get organizations
       operationId: ApiController.GetOrganizations
       parameters:
@@ -859,7 +859,7 @@ paths:
   /api/get-payment:
     get:
       tags:
-      - Payment API
+      - api
       description: get payment
       operationId: ApiController.GetPayment
       parameters:
@@ -876,7 +876,7 @@ paths:
   /api/get-payments:
     get:
       tags:
-      - Payment API
+      - api
       description: get payments
       operationId: ApiController.GetPayments
       parameters:
@@ -895,7 +895,7 @@ paths:
   /api/get-permission:
     get:
       tags:
-      - Permission API
+      - api
       description: get permission
       operationId: ApiController.GetPermission
       parameters:
@@ -912,7 +912,7 @@ paths:
   /api/get-permissions:
     get:
       tags:
-      - Permission API
+      - api
       description: get permissions
       operationId: ApiController.GetPermissions
       parameters:
@@ -931,7 +931,7 @@ paths:
   /api/get-product:
     get:
       tags:
-      - Product API
+      - api
       description: get product
       operationId: ApiController.GetProduct
       parameters:
@@ -948,7 +948,7 @@ paths:
   /api/get-products:
     get:
       tags:
-      - Product API
+      - api
       description: get products
       operationId: ApiController.GetProducts
       parameters:
@@ -967,7 +967,7 @@ paths:
   /api/get-provider:
     get:
       tags:
-      - Provider API
+      - api
       description: get provider
       operationId: ApiController.GetProvider
       parameters:
@@ -984,7 +984,7 @@ paths:
   /api/get-providers:
     get:
       tags:
-      - Provider API
+      - api
       description: get providers
       operationId: ApiController.GetProviders
       parameters:
@@ -1003,7 +1003,7 @@ paths:
   /api/get-records:
     get:
       tags:
-      - Record API
+      - api
       description: get all records
       operationId: ApiController.GetRecords
       parameters:
@@ -1025,7 +1025,7 @@ paths:
   /api/get-records-filter:
     post:
       tags:
-      - Record API
+      - api
       description: get records by filter
       operationId: ApiController.GetRecordsByFilter
       parameters:
@@ -1044,17 +1044,17 @@ paths:
   /api/get-resource:
     get:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.GetResource
   /api/get-resources:
     get:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.GetResources
   /api/get-role:
     get:
       tags:
-      - Role API
+      - api
       description: get role
       operationId: ApiController.GetRole
       parameters:
@@ -1071,7 +1071,7 @@ paths:
   /api/get-roles:
     get:
       tags:
-      - Role API
+      - api
       description: get roles
       operationId: ApiController.GetRoles
       parameters:
@@ -1090,7 +1090,7 @@ paths:
   /api/get-sorted-users:
     get:
       tags:
-      - User API
+      - api
       operationId: ApiController.GetSortedUsers
       parameters:
       - in: query
@@ -1118,7 +1118,7 @@ paths:
   /api/get-syncer:
     get:
       tags:
-      - Syncer API
+      - api
       description: get syncer
       operationId: ApiController.GetSyncer
       parameters:
@@ -1135,7 +1135,7 @@ paths:
   /api/get-syncers:
     get:
       tags:
-      - Syncer API
+      - api
       description: get syncers
       operationId: ApiController.GetSyncers
       parameters:
@@ -1154,7 +1154,7 @@ paths:
   /api/get-token:
     get:
       tags:
-      - Token API
+      - api
       description: get token
       operationId: ApiController.GetToken
       parameters:
@@ -1171,7 +1171,7 @@ paths:
   /api/get-tokens:
     get:
       tags:
-      - Token API
+      - api
       description: get tokens
       operationId: ApiController.GetTokens
       parameters:
@@ -1200,7 +1200,7 @@ paths:
   /api/get-user:
     get:
       tags:
-      - User API
+      - api
       description: get user
       operationId: ApiController.GetUser
       parameters:
@@ -1217,7 +1217,7 @@ paths:
   /api/get-user-application:
     get:
       tags:
-      - Application API
+      - api
       description: get the detail of the user's application
       operationId: ApiController.GetUserApplication
       parameters:
@@ -1234,7 +1234,7 @@ paths:
   /api/get-user-count:
     get:
       tags:
-      - User API
+      - api
       operationId: ApiController.GetUserCount
       parameters:
       - in: query
@@ -1253,7 +1253,7 @@ paths:
   /api/get-user-payments:
     get:
       tags:
-      - Payment API
+      - api
       description: get payments for a user
       operationId: ApiController.GetUserPayments
       parameters:
@@ -1282,13 +1282,35 @@ paths:
   /api/get-users:
     get:
       tags:
-      - User API
+      - api
       operationId: ApiController.GetUsers
       parameters:
       - in: query
         name: owner
         description: The owner of users
         required: true
+        type: string
+      - in: query
+        name: page
+        description: Page size
+        type: integer
+        format: int64
+      - in: query
+        name: pageSize
+        description: Page number(starts from 1)
+        type: integer
+        format: int64
+      - in: query
+        name: field
+        description: Field to filter
+        type: string
+      - in: query
+        name: value
+        description: Value to filter(like)
+        type: string
+      - in: query
+        name: type
+        description: User type
         type: string
       responses:
         "200":
@@ -1300,7 +1322,7 @@ paths:
   /api/get-webhook:
     get:
       tags:
-      - Webhook API
+      - api
       description: get webhook
       operationId: ApiController.GetWebhook
       parameters:
@@ -1317,7 +1339,7 @@ paths:
   /api/get-webhooks:
     get:
       tags:
-      - Webhook API
+      - api
       description: get webhooks
       operationId: ApiController.GetWebhooks
       parameters:
@@ -1336,7 +1358,7 @@ paths:
   /api/invoice-payment:
     post:
       tags:
-      - Payment API
+      - api
       description: invoice payment
       operationId: ApiController.InvoicePayment
       parameters:
@@ -1353,7 +1375,7 @@ paths:
   /api/login:
     post:
       tags:
-      - Login API
+      - api
       description: login
       operationId: ApiController.Login
       parameters:
@@ -1406,7 +1428,7 @@ paths:
   /api/login/oauth/access_token:
     post:
       tags:
-      - Token API
+      - api
       description: get OAuth access token
       operationId: ApiController.GetOAuthToken
       parameters:
@@ -1430,6 +1452,11 @@ paths:
         description: OAuth code
         required: true
         type: string
+      - in: query
+        name: cn
+        description: Ldap CN
+        required: true
+        type: string
       responses:
         "200":
           description: The Response object
@@ -1438,7 +1465,7 @@ paths:
   /api/login/oauth/code:
     post:
       tags:
-      - Token API
+      - api
       description: get OAuth code
       operationId: ApiController.GetOAuthCode
       parameters:
@@ -1479,6 +1506,8 @@ paths:
             $ref: '#/definitions/object.TokenWrapper'
   /api/login/oauth/introspect:
     post:
+      tags:
+      - api
       description: The introspection endpoint is an OAuth 2.0 endpoint that takes a
       operationId: ApiController.IntrospectToken
       parameters:
@@ -1500,7 +1529,7 @@ paths:
   /api/login/oauth/logout:
     get:
       tags:
-      - Token API
+      - api
       description: delete token by AccessToken
       operationId: ApiController.TokenLogout
       parameters:
@@ -1526,7 +1555,7 @@ paths:
   /api/login/oauth/refresh_token:
     post:
       tags:
-      - Token API
+      - api
       description: refresh OAuth access token
       operationId: ApiController.RefreshToken
       parameters:
@@ -1562,7 +1591,7 @@ paths:
   /api/logout:
     post:
       tags:
-      - Login API
+      - api
       description: logout the current user
       operationId: ApiController.Logout
       responses:
@@ -1573,7 +1602,7 @@ paths:
   /api/notify-payment:
     post:
       tags:
-      - Payment API
+      - api
       description: notify payment
       operationId: ApiController.NotifyPayment
       parameters:
@@ -1591,7 +1620,7 @@ paths:
   /api/run-syncer:
     get:
       tags:
-      - Syncer API
+      - api
       description: run syncer
       operationId: ApiController.RunSyncer
       parameters:
@@ -1609,12 +1638,12 @@ paths:
   /api/send-verification-code:
     post:
       tags:
-      - Verification API
+      - api
       operationId: ApiController.SendVerificationCode
   /api/set-password:
     post:
       tags:
-      - Account API
+      - api
       description: set password
       operationId: ApiController.SetPassword
       parameters:
@@ -1646,7 +1675,7 @@ paths:
   /api/signup:
     post:
       tags:
-      - Login API
+      - api
       description: sign up a new user
       operationId: ApiController.Signup
       parameters:
@@ -1668,16 +1697,16 @@ paths:
   /api/sync-ldap-users:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.SyncLdapUsers
   /api/unlink:
     post:
       tags:
-      - Login API
+      - api
   /api/update-application:
     post:
       tags:
-      - Application API
+      - api
       description: update an application
       operationId: ApiController.UpdateApplication
       parameters:
@@ -1700,7 +1729,7 @@ paths:
   /api/update-cert:
     post:
       tags:
-      - Cert API
+      - api
       description: update cert
       operationId: ApiController.UpdateCert
       parameters:
@@ -1723,12 +1752,12 @@ paths:
   /api/update-ldap:
     post:
       tags:
-      - Account API
+      - api
       operationId: ApiController.UpdateLdap
   /api/update-model:
     post:
       tags:
-      - Model API
+      - api
       description: update model
       operationId: ApiController.UpdateModel
       parameters:
@@ -1751,7 +1780,7 @@ paths:
   /api/update-organization:
     post:
       tags:
-      - Organization API
+      - api
       description: update organization
       operationId: ApiController.UpdateOrganization
       parameters:
@@ -1774,7 +1803,7 @@ paths:
   /api/update-payment:
     post:
       tags:
-      - Payment API
+      - api
       description: update payment
       operationId: ApiController.UpdatePayment
       parameters:
@@ -1797,7 +1826,7 @@ paths:
   /api/update-permission:
     post:
       tags:
-      - Permission API
+      - api
       description: update permission
       operationId: ApiController.UpdatePermission
       parameters:
@@ -1820,7 +1849,7 @@ paths:
   /api/update-product:
     post:
       tags:
-      - Product API
+      - api
       description: update product
       operationId: ApiController.UpdateProduct
       parameters:
@@ -1843,7 +1872,7 @@ paths:
   /api/update-provider:
     post:
       tags:
-      - Provider API
+      - api
       description: update provider
       operationId: ApiController.UpdateProvider
       parameters:
@@ -1866,12 +1895,12 @@ paths:
   /api/update-resource:
     post:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.UpdateResource
   /api/update-role:
     post:
       tags:
-      - Role API
+      - api
       description: update role
       operationId: ApiController.UpdateRole
       parameters:
@@ -1894,7 +1923,7 @@ paths:
   /api/update-syncer:
     post:
       tags:
-      - Syncer API
+      - api
       description: update syncer
       operationId: ApiController.UpdateSyncer
       parameters:
@@ -1917,7 +1946,7 @@ paths:
   /api/update-token:
     post:
       tags:
-      - Token API
+      - api
       description: update token
       operationId: ApiController.UpdateToken
       parameters:
@@ -1940,7 +1969,7 @@ paths:
   /api/update-user:
     post:
       tags:
-      - User API
+      - api
       description: update user
       operationId: ApiController.UpdateUser
       parameters:
@@ -1963,7 +1992,7 @@ paths:
   /api/update-webhook:
     post:
       tags:
-      - Webhook API
+      - api
       description: update webhook
       operationId: ApiController.UpdateWebhook
       parameters:
@@ -1986,12 +2015,12 @@ paths:
   /api/upload-resource:
     post:
       tags:
-      - Resource API
+      - api
       operationId: ApiController.UploadResource
   /api/userinfo:
     get:
       tags:
-      - Account API
+      - api
       description: return user information according to OIDC standards
       operationId: ApiController.UserInfo
       responses:
@@ -2002,13 +2031,13 @@ paths:
   /api/verify-captcha:
     post:
       tags:
-      - Verification API
+      - api
       operationId: ApiController.VerifyCaptcha
 definitions:
-  2200.0xc0003c4b70.false:
+  2127.0x14000276450.false:
     title: "false"
     type: object
-  2235.0xc0003c4ba0.false:
+  2161.0x14000276480.false:
     title: "false"
     type: object
   Response:
@@ -2019,6 +2048,8 @@ definitions:
     type: object
     properties:
       content:
+        type: string
+      provider:
         type: string
       receivers:
         type: array
@@ -2087,9 +2118,9 @@ definitions:
     type: object
     properties:
       data:
-        $ref: '#/definitions/2200.0xc0003c4b70.false'
+        $ref: '#/definitions/2127.0x14000276450.false'
       data2:
-        $ref: '#/definitions/2235.0xc0003c4ba0.false'
+        $ref: '#/definitions/2161.0x14000276480.false'
       msg:
         type: string
       name:
@@ -2896,6 +2927,8 @@ definitions:
         type: string
       ldap:
         type: string
+      ldapCn:
+        type: string
       linkedin:
         type: string
       location:
@@ -3006,3 +3039,9 @@ definitions:
   xorm.Engine:
     title: Engine
     type: object
+tags:
+- name: api
+  description: |
+    controller for handlers under /api uri
+- description: |
+    controller for handlers directly under / (root)
